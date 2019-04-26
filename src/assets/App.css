@@ -1,0 +1,155 @@
+li {
+  list-style: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-logo-user {
+	height: 60px;
+	border-radius: 1px solid red
+}
+
+.App-header {
+  background-color: #222;
+  height: 130px;
+  padding: 20px;
+  color: white;
+}
+
+.App-Footer{
+	left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+::placeholder{
+  color: blue;
+  text-align: center;
+}
+:required{
+  color: red;
+}
+
+:required::after{
+  content: "*";
+}
+.App-Section{
+  border: solid 2px red;
+  background: beige;
+}
+
+.App-result{
+  background: blue;
+
+}
+
+.App-Formulario{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 500px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+
+.App-Formulario input[type="text"],
+.App-Formulario input[type="date"],
+.App-Formulario input[type="datetime"],
+.App-Formulario input[type="email"],
+.App-Formulario input[type="number"],
+.App-Formulario input[type="search"],
+.App-Formulario input[type="time"],
+.App-Formulario input[type="url"],
+.App-Formulario input[type="password"],
+.App-Formulario textarea,
+.App-Formulario select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.App-Formulario textarea{
+	resize:none;
+	overflow: hidden;
+}
+.App-Formulario input[type="button"], 
+.App-Formulario input[type="submit"],
+.App-Formulario input[type="reset"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.App-Formulario input[type="button"]:hover, 
+.App-Formulario input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.App-Resultado{
+	border: 5px solid yellow;
+}
+
+.Lista{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-right: 1em;
+  background-color: white;
+  border: 1px solid #C5C5C5;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  box-shadow: 1px 1px 3px 0px rgba(134, 134, 134, 0.21);
+  animation-duration: 1s;
+	animation-fill-mode: forwards;
+	width: 40%;
+	align-items: center;
+	align-content: center;
+}
+
+ul{
+	display: flex;
+}
+
+li{
+	flex-direction: row;
+}
