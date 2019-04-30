@@ -12,7 +12,9 @@ import firebase from "firebase";
 
 class App extends Component {
 
-  usuarios2 = JSON.parse(localStorage.getItem('key'));
+  
+  usuarios2 = JSON.parse(localStorage.getItem('key')) || [];
+  //usuarios2 = JSON.parse(localStorage.getItem('key'));
   //cuando no funciona descomentar linea 17 y comentar linea 15
   //usuarios2 = []
 
@@ -134,7 +136,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>{this.renderCompruebaUsuario()}</p>
+        <div>{this.renderCompruebaUsuario()}</div>
       </div>
     );
   }
