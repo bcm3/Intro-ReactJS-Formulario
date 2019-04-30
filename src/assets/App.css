@@ -3,7 +3,10 @@ li {
 }
 
 .App {
-  text-align: center;
+	text-align: center;
+	margin-top: 0;
+	align-items: center;
+	align-content: center;
 }
 
 .App-logo {
@@ -30,6 +33,11 @@ li {
   color: white;
   text-align: center;
 }
+.App-Entrada{
+	align-content: center;
+	align-items: center;
+}
+
 
 .App-intro {
   font-size: large;
@@ -39,24 +47,21 @@ li {
   color: blue;
   text-align: center;
 }
-:required{
-  color: red;
-}
 
 :required::after{
   content: "*";
 }
 .App-Section{
-  border: solid 2px red;
+  border: solid 5px red;
   background: beige;
 }
 
 .App-result{
   background: blue;
-
 }
 
 .App-Formulario{
+	border: 3px blue solid;
 	font-family: 'Open Sans Condensed', arial, sans;
 	width: 500px;
 	padding: 30px;
@@ -65,7 +70,6 @@ li {
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
 }
 
 .App-Formulario input[type="text"],
@@ -127,13 +131,14 @@ li {
 }
 
 .App-Resultado{
-	border: 5px solid yellow;
+	border: 2px yellow solid;
+	align-content: center;
 }
 
 .Lista{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
-	margin-right: 1em;
+	margin-right: 4em;
   background-color: white;
   border: 1px solid #C5C5C5;
   border-radius: 3px;
@@ -141,15 +146,64 @@ li {
   box-shadow: 1px 1px 3px 0px rgba(134, 134, 134, 0.21);
   animation-duration: 1s;
 	animation-fill-mode: forwards;
-	width: 40%;
+	width: 20%;
 	align-items: center;
 	align-content: center;
+	border:1px solid springgreen;
 }
 
 ul{
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+}
+.botones{
+	font-size: 20px;
+	float: right;
 }
 
-li{
-	flex-direction: row;
+.salir{
+		
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+	border-bottom: 1px dotted black;
+	float: right;
+	font-size: 2em;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

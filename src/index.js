@@ -4,6 +4,7 @@ import firebase from "firebase";
 import App from "./components/App";
 import "./assets/index.css";
 
+//configuracion de Firebase
 firebase.initializeApp({
   apiKey: "AIzaSyAvvN7h6MrgkaHI6shbpziuzC96s74wI_w",
   authDomain: "fir-react-f50b5.firebaseapp.com",

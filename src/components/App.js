@@ -4,11 +4,19 @@ import Formulario from "./Formulario";
 import logo from "../assets/logo.svg";
 import "../assets/App.css";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-//import { PrimaryButton } from "office-ui-fabric-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+
 import firebase from "firebase";
 
 class App extends Component {
-  constructor() {
+
+  usuarios2 = JSON.parse(localStorage.getItem('key'));
+  //cuando no funciona descomentar linea 17 y comentar linea 15
+  //usuarios2 = []
+
+  constructor() { 
     super();
     this.state = {
       //de primeras nuestros usuarios y usuario logeados estaran vacios no hay nada en la app
@@ -40,7 +48,7 @@ class App extends Component {
       //correcto login
       .then(result => console.log(`${result.user.email} ha iniciado sesión`))
       //error en login
-      .catch(error => console.log(`Error  ${error.code}: ${error.mensaje}`));
+      .catch(error => console.log(`Error , ${error.code}: ${error.mensaje}`));
   }
 
   //Se encargar de salir de la app y desloguearse de google, sesion registrada previamente
@@ -57,27 +65,24 @@ class App extends Component {
   //METODO PARA SABER SI HAY O NO USUARIO LOGEADO
   renderCompruebaUsuario() {
 
-    const { disabled, checked } = this.props;
+    //const { disabled, checked } = this.props;
 
     //SI hay usuario logeado
     if (this.state.usuario) {
       return (
-
         <div className="App">
-
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Lista de Contactos</h2>
-          <div className="App-Formulario">
-            <input type="submit" onClick={this.handleSalir} value="Salir" />      
-          </div>
+          <h2>Agenda de Contactos</h2>
+          <div className="tooltip">
+            <span class="tooltiptext">Salir</span>
+            <a href="#" onClick={this.handleSalir}><FontAwesomeIcon icon={faSignOutAlt}  />
+            </a>
+            </div>
         </div>
         <div className="App-Section">
-          <p>
-            <strong>Añade usuarios</strong>
-          </p>
           <Formulario anadirUsuario={this.handleOnAddUser.bind(this)} />
-          <UserList users={this.state.users} className="App-Resultado" />
+          <UserList users={this.state.users} className="App-Resultado" onClick="handleBorrarUser()" />
         </div>
         <div className="App-Footer">
           <Map google={this.props.google} zoom={16}>
@@ -89,14 +94,14 @@ class App extends Component {
       );
     } else {
       return (
-        //si no esta logeado en la app, boton de INICIO DE PANTALLA!!!!
-        <div className="App-Formulario"> 
-          <input type="submit" onClick={this.handleAuth} value="Entrar" />      
-      </div>
+        // <div className="App-Formulario"> 
+        //   <input type="submit" onClick={this.handleAuth} value="Entrar" />      
+        //  </div>
+        <a href="#" onClick={this.handleAuth}><FontAwesomeIcon icon={faSignInAlt}  /></a>
       );
     }
   }
-
+ 
   //evento para recoger todos los datos introducidos por el formulario
   handleOnAddUser(event) {
     event.preventDefault();
@@ -109,9 +114,20 @@ class App extends Component {
       adress: event.target.adress.value,
       foto: event.target.foto.value
     };
+    this.usuarios2.push(user);
+    console.log("Que guardo aquí usuario2:",this.usuarios2)
     this.setState({
-      users: this.state.users.concat([user])
-    });
+      users: this.state.users.concat(this.usuarios2)
+    }); 
+        console.log("Que guardo aquí:"+ this.state.users)
+        localStorage.setItem('key', JSON.stringify(this.usuarios2));
+
+    //guardamos el usuario introducido en el localstorage
+    //let users = user;
+    //localStorage.setItem('key', JSON.stringify(users));
+  }
+
+  handleBorrarUser(event){
   }
 
   //aqui esta el inicio de nuestra app, el DOM nos renderiza a esta parte 
