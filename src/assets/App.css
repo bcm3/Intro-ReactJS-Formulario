@@ -14,11 +14,6 @@ li {
   height: 80px;
 }
 
-.App-logo-user {
-	height: 60px;
-	border-radius: 1px solid red
-}
-
 .App-header {
   background-color: #222;
   height: 130px;
@@ -38,7 +33,6 @@ li {
 	align-items: center;
 }
 
-
 .App-intro {
   font-size: large;
 }
@@ -48,20 +42,12 @@ li {
   text-align: center;
 }
 
-:required::after{
-  content: "*";
-}
 .App-Section{
-  border: solid 5px red;
+  border: solid 1px transparent;
   background: beige;
 }
 
-.App-result{
-  background: blue;
-}
-
 .App-Formulario{
-	border: 3px blue solid;
 	font-family: 'Open Sans Condensed', arial, sans;
 	width: 500px;
 	padding: 30px;
@@ -130,10 +116,6 @@ li {
   to { transform: rotate(360deg); }
 }
 
-.App-Resultado{
-	border: 2px yellow solid;
-	align-content: center;
-}
 
 .Lista{
 	margin-top: 0.5em;
@@ -160,19 +142,13 @@ ul{
 }
 .botones{
 	font-size: 20px;
-	float: right;
-}
-
-.salir{
-		
 }
 
 .tooltip {
   position: relative;
-  display: inline-block;
-	border-bottom: 1px dotted black;
-	float: right;
-	font-size: 2em;
+	display: inline-block;
+	float: left;
+	font-size: 1em;
 }
 
 .tooltip .tooltiptext {
@@ -204,6 +180,45 @@ ul{
 }
 
 .tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipcenter {
+  position: relative;
+  display: inline-block;
+	text-align: center;
+	font-size: 1em;
+}
+
+.tooltipcenter .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltipcenter .tooltiptext::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltipcenter:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }

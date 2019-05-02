@@ -5,7 +5,6 @@ import firebase from 'firebase';
 
 
 export default class Formulario extends Component{
-  
 
   constructor(){
     super();
@@ -54,7 +53,7 @@ export default class Formulario extends Component{
     }, () => {  this.setState({
         uploadValue: 100,
         picture: task.snapshot.downloadURL
-        //donde esta el fichero
+        //donde esta el fichero ubicado
       });
     });
 
@@ -63,11 +62,10 @@ export default class Formulario extends Component{
   render(){
     return ( 
       <form onSubmit={this.props.anadirUsuario} className="App-Formulario">
-          Nombre*: <input type="text" placeholder="Introduzca su nombre" name="name" onChange={this.onUpload} />
+          Nombre: <input type="text" placeholder="Introduzca su nombre" name="name" onChange={this.onUpload} />
           Apellidos: <input type="text" placeholder="Introduzca sus apellidos" name="apellidos" onChange={this.onUpload}/>
-          Direccíon: <input type="text" placeholder="Introduce tu direccion" name="adress" onChange={this.onUpload}/>
+          Dirección: <input type="text" placeholder="Introduce tu direccion" name="adress" onChange={this.onUpload}/>
           Telefono: <input type="number" placeholder="Introduzca su móvil" name="numero" onChange={this.onUpload}/>
-
           Sexo: <select name="sexo" onChange={this.onUpload}>
                   <option>Seleccione una opción</option>
                   <option value="hombre" name="hombre">Hombre</option>

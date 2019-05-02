@@ -9,13 +9,10 @@ class UserList extends Component {
      
     return (
         <ul>
-          {cosas.map(u => {
-          //cuando no funciona descomentar linea 14 y comentar la 14
-          // {this.props.users.map(u => {
-            console.log("Que hay aqui en el mapa" , u)
+          {this.props.users.map(u => {
             return (           
               <FichaUser
-                key={u.ID}
+                key={u.toString()}
                 name={u.name}
                 apellidos={u.apellidos}
                 numero={u.numero}

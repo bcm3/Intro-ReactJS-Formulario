@@ -7,22 +7,21 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
-
 import firebase from "firebase";
 
 class App extends Component {
-
   
   usuarios2 = JSON.parse(localStorage.getItem('key')) || [];
   //usuarios2 = JSON.parse(localStorage.getItem('key'));
-  //cuando no funciona descomentar linea 17 y comentar linea 15
+  //cuando no funciona descomentar linea 15 y comentar linea 17
   //usuarios2 = []
 
   constructor() { 
     super();
     this.state = {
       //de primeras nuestros usuarios y usuario logeados estaran vacios no hay nada en la app
-      users: [],
+      //users: [],
+      users: this.usuarios2,
       usuario: null
     };
 
@@ -77,7 +76,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Agenda de Contactos</h2>
           <div className="tooltip">
-            <span class="tooltiptext">Salir</span>
+            <span className="tooltiptext">Salir</span>
             <a href="#" onClick={this.handleSalir}><FontAwesomeIcon icon={faSignOutAlt}  />
             </a>
             </div>
@@ -96,10 +95,10 @@ class App extends Component {
       );
     } else {
       return (
-        // <div className="App-Formulario"> 
-        //   <input type="submit" onClick={this.handleAuth} value="Entrar" />      
-        //  </div>
-        <a href="#" onClick={this.handleAuth}><FontAwesomeIcon icon={faSignInAlt}  /></a>
+        <div className="tooltipcenter">
+          <span className="tooltiptext">Entrar</span>
+          <a href="#" onClick={this.handleAuth}><FontAwesomeIcon icon={faSignInAlt} /></a>
+        </div>
       );
     }
   }
@@ -116,20 +115,21 @@ class App extends Component {
       adress: event.target.adress.value,
       foto: event.target.foto.value
     };
+
     this.usuarios2.push(user);
-    console.log("Que guardo aquí usuario2:",this.usuarios2)
+    console.log("Que guardo aquí en usuario2:",this.usuarios2)
+
     this.setState({
-      users: this.state.users.concat(this.usuarios2)
-    }); 
-        console.log("Que guardo aquí:"+ this.state.users)
-        localStorage.setItem('key', JSON.stringify(this.usuarios2));
+      //users: this.state.users.concat(this.usuarios2)
+      users: this.usuarios2
+    });
+
+    console.log("Que guardo aquí:"+ this.state.users)
+    localStorage.setItem('key', JSON.stringify(this.usuarios2));
 
     //guardamos el usuario introducido en el localstorage
     //let users = user;
     //localStorage.setItem('key', JSON.stringify(users));
-  }
-
-  handleBorrarUser(event){
   }
 
   //aqui esta el inicio de nuestra app, el DOM nos renderiza a esta parte 
