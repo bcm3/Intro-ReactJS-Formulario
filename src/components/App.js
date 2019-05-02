@@ -107,6 +107,8 @@ class App extends Component {
   handleOnAddUser(event) {
     event.preventDefault();
     let user = {
+      //id: generamos un Id aleatorio con la libreria math
+      id: Math.random(),
       name: event.target.name.value,
       apellidos: event.target.apellidos.value,
       numero: event.target.numero.value,
@@ -117,14 +119,14 @@ class App extends Component {
     };
 
     this.usuarios2.push(user);
-    console.log("Que guardo aquí en usuario2:",this.usuarios2)
+    console.log("Que guardo aquí en usuario2: ",this.usuarios2)
 
     this.setState({
       //users: this.state.users.concat(this.usuarios2)
       users: this.usuarios2
     });
 
-    console.log("Que guardo aquí:"+ this.state.users)
+    //console.log("Que guardo aquí:"+ this.state.users)
     localStorage.setItem('key', JSON.stringify(this.usuarios2));
 
     //guardamos el usuario introducido en el localstorage

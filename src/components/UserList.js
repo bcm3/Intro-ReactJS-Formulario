@@ -4,15 +4,14 @@ import FichaUser from '../components/FichaUser'
 class UserList extends Component {
   render () {
 
-    let cosas=JSON.parse(localStorage.getItem('key')) || [];
-    console.log("tengoen key" , cosas)
-     
+    // let cosas=JSON.parse(localStorage.getItem('key')) || [];
+    // console.log("tengoen key" , cosas)
     return (
         <ul>
-          {this.props.users.map(u => {
+          {this.props.users.map((u, idx) => {
             return (           
               <FichaUser
-                key={u.toString()}
+                key={u.id}
                 name={u.name}
                 apellidos={u.apellidos}
                 numero={u.numero}

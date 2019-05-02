@@ -37,7 +37,6 @@ class FichaUser extends Component {
     }
   
   render () {  
-
     return (
       <li className="Lista">
       <div className="botones">
@@ -50,7 +49,6 @@ class FichaUser extends Component {
         </div>      
      </div>
         <img src={logoUser} className="App-logo-user" alt="logo"/> 
-        <p><strong>ID: </strong>{this.props.id}</p>
         <p><strong>Nombre: </strong>{this.props.name}</p>
         <p><strong>Apellidos: </strong>{this.props.apellidos}</p>
         <p><strong>Sexo: </strong>{this.props.sexo}</p>
